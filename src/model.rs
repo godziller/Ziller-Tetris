@@ -2,12 +2,22 @@ use term2d::AppBuilder;
 use term2d::App;
 use term2d::view::canvas::Canvas;
 use term2d::view::canvas::halfblock::HalfblockCanvas;
-
 use crate::view::draw;
-pub struct Model{
-    pub counter: u32,
+use crate::modelcomponents::well::Well;
+
+
+pub struct Model {
+    pub well: Well,
 }
 
-pub fn init_model(_app: &App) -> Model {
-    Model {counter: 0}
+impl Model {
+    pub fn new(app: &App) -> Self {
+        let well = Well::new(10,20);
+
+        Self {
+            well,
+        }
+    }
 }
+
+
